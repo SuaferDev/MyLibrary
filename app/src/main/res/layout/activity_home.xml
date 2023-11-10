@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/layout_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="30dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Моя Библиотека"
+                            android:textSize="20sp"
+                            android:padding="8dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/main_font"
+                            android:textColor="#FFFFFF"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:gravity="end">
+
+                            <TextView
+                                android:id="@+id/text_avatar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Я"
+                                android:padding="10dp"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:fontFamily="@font/main_font"
+                                android:background="@drawable/circle_corner_background_white"
+                                android:textColor="#FFFFFF"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/search_layout_background">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/main_font"
+                            android:gravity="center_vertical"
+                            android:text="Название, автор..."
+                            android:textColor="#95000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/icon_search"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    android:paddingTop="24dp"
+                    android:paddingStart="20dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_background_rounded">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Наши Новости"
+                            android:textSize="16sp"
+                            android:padding="10dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/main_font"
+                            android:textColor="#000000"
+                            tools:ignore="HardcodedText"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/home_text_background"/>
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="40dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:id="@+id/image_new1"
+                                    android:layout_width="150dp"
+                                    android:layout_height="190dp"
+                                    android:padding="8dp"
+                                    android:background="@drawable/new_new_book" />
+
+                                <ImageView
+                                    android:id="@+id/image_new2"
+                                    android:layout_width="150dp"
+                                    android:layout_height="190dp"
+                                    android:layout_marginStart="20dp"
+                                    android:background="@drawable/new_book_club" />
+
+                                <ImageView
+                                    android:id="@+id/image_new4"
+                                    android:layout_width="150dp"
+                                    android:layout_height="190dp"
+                                    android:layout_marginStart="20dp"
+                                    android:background="@drawable/new_dostavka"/>
+
+                                <ImageView
+                                    android:id="@+id/image_new5"
+                                    android:layout_width="150dp"
+                                    android:layout_height="190dp"
+                                    android:layout_marginStart="20dp"
+                                    android:background="@drawable/new_work" />
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:paddingEnd="20dp"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Не знаете, что почитать?"
+                            android:textSize="16sp"
+                            android:padding="10dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/main_font"
+                            android:textColor="#000000"
+                            tools:ignore="HardcodedText"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/home_text_background"/>
+
+                        <LinearLayout
+                            android:id="@+id/linear_random"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/random_book_background"
+                            android:orientation="horizontal"
+                            android:paddingEnd="4dp"
+                            android:layout_marginBottom="5dp"
+                            tools:ignore="RtlSymmetry">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:padding="8dp"
+                                    android:src="@drawable/icon_question" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="СЛУЧАЙНАЯ"
+                                    android:textSize="18sp"
+                                    android:padding="10dp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/main_font"
+                                    android:textColor="#FFFFFF"
+                                    tools:ignore="HardcodedText"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:orientation="horizontal"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="КНИГА"
+                                        android:textSize="18sp"
+                                        android:padding="10dp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/main_font"
+                                        android:textColor="#FFFFFF"
+                                        tools:ignore="HardcodedText"
+                                        android:gravity="center"/>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:padding="8dp"
+                                        android:rotation="180"
+                                        android:src="@drawable/icon_next_white"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_search_genres"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/corner_background_black">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Поиск по жанрам"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:padding="8dp"
+                                android:gravity="center_vertical"
+                                android:fontFamily="@font/main_font"
+                                android:textColor="#000000"
+                                tools:ignore="HardcodedText"
+                                android:layout_weight="1"/>
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:padding="4dp"
+                                android:rotation="180"
+                                android:src="@drawable/icon_back" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingEnd="20dp"
+                            android:padding="2dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Где нас найти?"
+                                android:textSize="16sp"
+                                android:padding="10dp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/main_font"
+                                android:textColor="#000000"
+                                tools:ignore="HardcodedText"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/home_text_background"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="40dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/text_location"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Университетская пл., 1, Воронеж, Воронежская обл., 394018"
+                                    android:textSize="18sp"
+                                    android:paddingBottom="8dp"
+                                    android:paddingTop="8dp"
+                                    android:paddingEnd="8dp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/main_font"
+                                    android:textColor="#000000"
+                                    tools:ignore="HardcodedText"
+                                    android:layout_weight="1"/>
+
+                                <ImageView
+                                    android:id="@+id/image_copy"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:padding="4dp"
+                                    android:src="@drawable/icon_copy"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
