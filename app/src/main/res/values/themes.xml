@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.MyLibrary" parent="Base.Theme.MyLibrary" />
+
+    <style name="CustomListViewStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:fastScrollThumbDrawable">@drawable/custom_fastscroll_thumb</item>
+    </style>
 </resources>

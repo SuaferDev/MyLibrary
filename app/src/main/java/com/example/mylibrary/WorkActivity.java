@@ -52,13 +52,14 @@ public class WorkActivity extends AppCompatActivity {
     private ListView listView;
     private Animation mFadeInAnimation;
     private TextView text_check;
+    private final Work work = new Work();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.color_home));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.black));
 
         text_check = findViewById(R.id.text_check);
         LinearLayout linear_add_book = findViewById(R.id.linear_add_book);
@@ -139,7 +140,7 @@ public class WorkActivity extends AppCompatActivity {
         });
 
         liner_add_button.setOnClickListener(view ->{
-            if(Work.addBook(edittext_name.getText().toString(), edittext_author.getText().toString(),edittext_genres.getText().toString(), edittext_description.getText().toString(), lastId)==1){
+            if(work.addBook(edittext_name.getText().toString(), edittext_author.getText().toString(),edittext_genres.getText().toString(), edittext_description.getText().toString(), lastId)==1){
                 Toast.makeText(WorkActivity.this, "Книга добавлена", Toast.LENGTH_LONG).show();
                 lastId+=1;
             }else{
@@ -205,7 +206,7 @@ public class WorkActivity extends AppCompatActivity {
         integrator.initiateScan();
 
         liner_get_button.setOnClickListener(view ->{
-            if(Work.giveBook(b, userId)==1){
+            if(work.giveBook(b, userId)==1){
                 Toast.makeText(WorkActivity.this,"Выдача книги зафиксирована",Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(WorkActivity.this,"Ошибка фиксации выдачи",Toast.LENGTH_LONG).show();
@@ -242,7 +243,7 @@ public class WorkActivity extends AppCompatActivity {
         integrator.initiateScan();
 
         liner_get_button.setOnClickListener(view ->{
-                Work.getBook(userId, b);
+                work.getBook(userId, b);
                 dialog.dismiss();
         });
 

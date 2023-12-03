@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#00000000"/> <!-- Замените #FF0000 на нужный вам цвет -->
+    <size android:width="10dp" android:height="10dp"/> <!-- Размер полоски -->
+</shape>

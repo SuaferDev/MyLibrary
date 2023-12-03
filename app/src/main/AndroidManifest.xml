@@ -19,9 +19,6 @@
             android:name=".GenresActivity"
             android:exported="false" />
         <activity
-            android:name=".EnteresWorkActivity"
-            android:exported="false" />
-        <activity
             android:name=".WorkActivity"
             android:exported="false" />
         <activity

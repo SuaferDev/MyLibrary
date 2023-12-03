@@ -23,7 +23,6 @@ public class EnteresActivity extends AppCompatActivity {
 
     private final Intent i = new Intent();
     private FirebaseAuth auth;
-
     private EditText edittext_login, edittext_password;
     private ImageView image_enteres;
     private TextView text_enteres;
@@ -125,19 +124,23 @@ public class EnteresActivity extends AppCompatActivity {
         image_enteres.startAnimation(rotateAnimation);
         auth.signInWithEmailAndPassword(email , password).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-                UserData.getInstance().setLogin(email);
-                if(remember_me){
-                    SaveLogin.edit().putString("login", email).apply();
-                    SavePassword.edit().putString("password", password).apply();
-                }
                 if(employ){
                     Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(EnteresActivity.this , WorkActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
-                }else{
-
+                }else {
+                    if (remember_me) {
+                        SaveLogin.edit().putString("login", email).apply();
+                        SavePassword.edit().putString("password", password).apply();
+                    }
+                    UserData.getInstance().setLogin(email);
+                    Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(EnteresActivity.this, HomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
                 }
 
             }
@@ -150,5 +153,39 @@ public class EnteresActivity extends AppCompatActivity {
             image_enteres.clearAnimation();
             setError();
         });
+        /*
+        auth.signInWithEmailAndPassword(email , password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                UserData.getInstance().setLogin(email);
+
+                if(employ){
+                    Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(EnteresActivity.this , WorkActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(EnteresActivity.this , HomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
+                Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(EnteresActivity.this , HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
+            }
+        }).addOnFailureListener(e -> {
+            edittext_password.setText("");
+            text_enteres.setText("ПРОДОЛЖИТЬ");
+            text_enteres.setTextColor(0xFF131313);
+            text_enteres.setBackgroundResource(R.drawable.edite_text_backround);
+            image_enteres.setImageResource(R.drawable.icon_back_gray);
+            image_enteres.clearAnimation();
+            setError();
+        });
+        */
     }
 }

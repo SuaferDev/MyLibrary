@@ -10,197 +10,208 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="20dp"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp">
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="35dp"
+            android:background="@drawable/background_genres_black">
 
-            <ImageView
-                android:id="@+id/image_back"
-                android:layout_width="30dp"
-                android:padding="4dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icon_next_black"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Библиотечный фонд"
-                android:textSize="20sp"
-                android:padding="8dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/main_font"
-                android:textColor="#000000"
-                android:gravity="end"
-                tools:ignore="HardcodedText" />
+                android:paddingBottom="10dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp">
+
+                <ImageView
+                    android:id="@+id/image_back"
+                    android:layout_width="30dp"
+                    android:padding="4dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_next_white"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Библиотечный фонд"
+                    android:textSize="20sp"
+                    android:padding="8dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/main_font"
+                    android:textColor="#FFFFFF"
+                    android:gravity="end"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="10dp"
+                style="@style/CustomListViewStyle">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_prose"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Проза"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+
+                    <TextView
+                        android:id="@+id/text_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Исторический жанр"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+
+                    <TextView
+                        android:id="@+id/text_roman"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Роман"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                style="@style/CustomListViewStyle">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_horror"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ужасы"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+
+                    <TextView
+                        android:id="@+id/text_fantasy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Фэнтази"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+
+                    <TextView
+                        android:id="@+id/text_rasskaz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Рассказ"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+
+                    <TextView
+                        android:id="@+id/text_biografy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Автобиография"
+                        android:textSize="18sp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:layout_marginStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/main_font"
+                        android:textColor="#FFFFFF"
+                        android:gravity="end"
+                        tools:ignore="HardcodedText"
+                        android:background="@drawable/corner_background_white"/>
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
         </LinearLayout>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="10dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/text_prose"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Проза"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-
-                <TextView
-                    android:id="@+id/text_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Исторический жанр"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-
-                <TextView
-                    android:id="@+id/text_roman"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Роман"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/text_horror"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ужасы"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-
-                <TextView
-                    android:id="@+id/text_fantasy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Фэнтази"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-
-                <TextView
-                    android:id="@+id/text_rasskaz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Рассказ"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-
-                <TextView
-                    android:id="@+id/text_biografy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Автобиография"
-                    android:textSize="18sp"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:layout_marginStart="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/main_font"
-                    android:textColor="#000000"
-                    android:gravity="end"
-                    tools:ignore="HardcodedText"
-                    android:background="@drawable/corner_background_black"/>
-            </LinearLayout>
-
-        </HorizontalScrollView>
-
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="8dp"
-            android:layout_marginTop="10dp"
             android:background="@drawable/profile_list_background"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            style="@style/CustomListViewStyle"/>
 
 
     </LinearLayout>

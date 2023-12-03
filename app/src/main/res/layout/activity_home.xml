@@ -107,11 +107,11 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:orientation="vertical"
                     android:paddingTop="24dp"
-                    android:paddingStart="20dp"
                     android:paddingBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/home_background_rounded">
@@ -132,6 +132,7 @@
                             android:textStyle="bold"
                             android:fontFamily="@font/main_font"
                             android:textColor="#000000"
+                            android:layout_marginStart="20dp"
                             tools:ignore="HardcodedText"
                             android:layout_marginBottom="5dp"
                             android:background="@drawable/home_text_background"/>
@@ -139,12 +140,14 @@
                         <HorizontalScrollView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="40dp">
+                            android:layout_marginBottom="40dp"
+                            style="@style/CustomListViewStyle">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
+                                android:paddingStart="20dp"
                                 android:padding="2dp">
 
                                 <ImageView
@@ -201,6 +204,7 @@
                             android:fontFamily="@font/main_font"
                             android:textColor="#000000"
                             tools:ignore="HardcodedText"
+                            android:layout_marginStart="20dp"
                             android:layout_marginBottom="5dp"
                             android:background="@drawable/home_text_background"/>
 
@@ -211,6 +215,7 @@
                             android:background="@drawable/random_book_background"
                             android:orientation="horizontal"
                             android:paddingEnd="4dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginBottom="5dp"
                             tools:ignore="RtlSymmetry">
 
@@ -284,6 +289,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:padding="4dp"
+                            android:layout_marginStart="20dp"
                             android:gravity="center_vertical"
                             android:background="@drawable/corner_background_black">
 
@@ -323,6 +329,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:paddingEnd="20dp"
+                            android:layout_marginStart="20dp"
                             android:padding="2dp">
 
                             <TextView

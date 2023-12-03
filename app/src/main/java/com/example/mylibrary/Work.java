@@ -12,19 +12,12 @@ import java.util.HashMap;
 
 public class Work {
 
-    public static int getBook(String userId, Book b){
+    public int getBook(String userId, Book b){
         try{
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference ref = database.getReference("Users/"+userId+"/issuedBook/"+b.getId());
-            ref.removeValue((databaseError, databaseReference) -> {
-                if(databaseError == null){
-                    FirebaseDatabase databaseBook = FirebaseDatabase.getInstance();
-                    DatabaseReference myRefBook = databaseBook.getReference("Book");
-                    myRefBook.child(String.valueOf(b.getId())).child("date").setValue("");
-                    myRefBook.child(String.valueOf(b.getId())).child("status").setValue("0");
-
-                }
-            });
+            FirebaseDatabase databaseBook = FirebaseDatabase.getInstance();
+            DatabaseReference myRefBook = databaseBook.getReference("Book");
+            myRefBook.child(String.valueOf(b.getId())).child("date").setValue("-");
+            myRefBook.child(String.valueOf(b.getId())).child("status").setValue("0");
 
         }catch (Exception e){
             return -1;
@@ -32,7 +25,7 @@ public class Work {
         return 0;
     }
 
-    public static int giveBook(Book b, String userId){
+    public int giveBook(Book b, String userId){
         try{
             if(b!=null){
                 Date date = new Date();
@@ -56,13 +49,6 @@ public class Work {
                 DatabaseReference myRefBook = databaseBook.getReference("Book");
                 myRefBook.child(String.valueOf(b.getId())).child("date").setValue(d+"/"+m+"/"+y);
                 myRefBook.child(String.valueOf(b.getId())).child("status").setValue(userId);
-
-
-                b.setDate(d+"/"+m+"/"+y);
-                b.setStatus(userId);
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Users");
-                myRef.child(userId).child("issuedBook").child(String.valueOf(b.getId())).setValue(b);
                 return 1;
             }
 
@@ -71,7 +57,7 @@ public class Work {
         }
         return 0;
     }
-    public static int addBook(String name, String author, String genres, String description, int lastId){
+    public int addBook(String name, String author, String genres, String description, int lastId){
         if(!name.isEmpty() && !author.isEmpty() && !genres.isEmpty() && !description.isEmpty()){
             genres = genres.replaceAll(" ", "");
             HashMap<Object , Object> map = new HashMap<>();
@@ -80,7 +66,7 @@ public class Work {
             map.put("genres" , genres);
             map.put("description", description);
             map.put("status","0");
-            map.put("date","");
+            map.put("date","-");
             map.put("id" , lastId+1);
             DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
             try{

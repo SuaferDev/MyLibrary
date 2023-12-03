@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_home"
+    android:background="@color/black"
     tools:context=".WorkActivity">
 
     <LinearLayout
@@ -28,7 +28,7 @@
                 android:padding="4dp"
                 android:text="Доброе утро,"
                 android:textSize="18sp"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 tools:ignore="HardcodedText"
                 android:gravity="center"
                 android:fontFamily="@font/main_font_italic"/>
@@ -39,7 +39,7 @@
                 android:padding="4dp"
                 android:text="Электронный Читательский билет"
                 android:textSize="20sp"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 tools:ignore="HardcodedText"
                 android:gravity="center"
                 android:fontFamily="@font/main_font"/>

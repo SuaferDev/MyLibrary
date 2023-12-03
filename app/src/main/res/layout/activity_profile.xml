@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_search"
     tools:context=".ProfileActivity">
 
     <LinearLayout
@@ -32,11 +31,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
 
-            <ImageView
-                android:id="@+id/image_avatar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/avatar"/>
             <ImageView
                 android:id="@+id/image_setting"
                 android:layout_width="40dp"
@@ -115,23 +109,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:padding="4dp"
-                    android:src="@drawable/app_logo"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="Suafer Library"
-                    android:textSize="18sp"
-                    android:textColor="#FFFFFF"
-                    tools:ignore="HardcodedText"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/main_font"/>
             </LinearLayout>
 
         </LinearLayout>

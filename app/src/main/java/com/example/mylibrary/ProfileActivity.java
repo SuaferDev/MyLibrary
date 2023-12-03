@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -37,6 +38,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.Semaphore;
@@ -54,6 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
     private int status = 2;
     private String userEmail;
     private Animation mFadeInAnimation;
+    private DatabaseReference bookDataBase;
     private String userId;
 
     @Override
@@ -73,6 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
         ImageView image_back = findViewById(R.id.image_back);
         ImageView image_setting = findViewById(R.id.image_setting);
         listView = findViewById(R.id.listView);
+        bookDataBase = FirebaseDatabase.getInstance().getReference("Book");
 
         SaveFavorite = getSharedPreferences("favoritesBook", Activity.MODE_PRIVATE);
         String jsonFavorite = SaveFavorite.getString("favoritesBook", "");
@@ -95,28 +99,9 @@ public class ProfileActivity extends AppCompatActivity {
                     text_name.setText(String.valueOf(name+" "+ surname));
                     text_date.setText(String.valueOf(date));
                     text_library_card.setText(String.valueOf(libraryCard));
-
-                    DataSnapshot d = snapshot.child("issuedBook");
-                    issuedBook = new ArrayList<>();
-                    for (DataSnapshot dB : d.getChildren()) {
-                        Book book = dB.getValue(Book.class);
-                        if (book != null) {
-                            issuedBook.add(book);
-                        }
-                    }
-                    CustomIssuedBookAdapter adapter = new CustomIssuedBookAdapter(ProfileActivity.this, issuedBook);
-                    mFadeInAnimation = AnimationUtils.loadAnimation(ProfileActivity.this, R.anim.fade_id);
-                    mFadeInAnimation.setAnimationListener(animationFadeInListener);
-                    listView.startAnimation(mFadeInAnimation);
-                    listView.setAdapter(adapter);
-
-
-                    if(issuedBook.isEmpty()){
-                        text_check.setText("Выданных книг нет");
-                    }else{
-                        text_check.setText("");
-                    }
                 }
+                //Toast.makeText(ProfileActivity.this,userId,Toast.LENGTH_LONG).show();
+                getFromDataBase();
             }
 
             @Override
@@ -125,6 +110,8 @@ public class ProfileActivity extends AppCompatActivity {
                 System.out.println("Ошибка: " + databaseError.getMessage());
             }
         });
+
+
 
 
 
@@ -176,9 +163,41 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    private void getFromDataBase() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                issuedBook = new ArrayList<>();
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Book book = ds.getValue(Book.class);
+                    if (book != null && Objects.equals(book.getStatus(), userId)) {
+                        issuedBook.add(book);
+                    }
+                }
+                CustomIssuedBookAdapter adapter = new CustomIssuedBookAdapter(ProfileActivity.this, issuedBook);
+                mFadeInAnimation = AnimationUtils.loadAnimation(ProfileActivity.this, R.anim.fade_id);
+                mFadeInAnimation.setAnimationListener(animationFadeInListener);
+                listView.startAnimation(mFadeInAnimation);
+                listView.setAdapter(adapter);
+
+
+                if(issuedBook.isEmpty()){
+                    text_check.setText("Выданных книг нет");
+                }else{
+                    text_check.setText("");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("TAG", error.getMessage());}
+        };
+        bookDataBase.addValueEventListener(valueEventListener);
+    }
+
     private void createFavoriteBookDialog(Book b){
         Dialog dialog = new Dialog(ProfileActivity.this);
-        dialog.setContentView(R.layout.custom_dialog_favorite_book);
+        dialog.setContentView(R.layout.custom_dialog_book);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(true);

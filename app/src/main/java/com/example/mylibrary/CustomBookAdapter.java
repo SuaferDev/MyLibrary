@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CustomBookAdapter extends ArrayAdapter {
 
@@ -34,6 +35,21 @@ public class CustomBookAdapter extends ArrayAdapter {
         LinearLayout linear = view.findViewById(R.id.linear);
         text_name.setText(arr.get(position).getName());
         text_author.setText(arr.get(position).getAuthor());
+        /*
+        if (Objects.equals(arr.get(position).getStatus(), "0")) {
+            view.setBackgroundColor(0xFF8C8C8C);
+        } else {
+            view.setBackgroundColor(0x00000000);
+        }
+         */
+        if(!Objects.equals(arr.get(position).getStatus(), "0")){
+            text_name.setTextColor(0xFF8C8C8C);
+            text_author.setTextColor(0xFF8C8C8C);
+        }else{
+            text_name.setTextColor(0xFF000000);
+            text_author.setTextColor(0xFF000000);
+        }
+        //view.setBackgroundColor(0x00000000);
 
         return view;
     }
